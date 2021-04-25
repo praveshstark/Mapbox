@@ -7,4 +7,4 @@
 
 
 ### UI/UX-
-![alt text](https://github.com/praveshstark/Memories-client/blob/main/src/image/client.png?raw=true)
+![alt text](https://github.com/praveshstark/Mapbox/blob/main/src/img/Screenshot%20(172).png?raw=true)
