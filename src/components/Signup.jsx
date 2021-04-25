@@ -7,45 +7,9 @@ import web from '../img/wave1.png';
 import web1 from '../img/power.svg';
 import web2 from '../img/avatar.svg';
 import { NavLink } from 'react-router-dom';
-import { Formik } from "formik";
-import * as EmailValidator from "email-validator";
-import * as Yup from "yup";
 
-
-const Signup = () => (
-    <Formik
-    initialValues={{ firstname:"", lastname:"", email: "", password: "" }}
-    onSubmit={(values, { setSubmitting }) => {
-      setTimeout(() => {
-        console.log("Signup in", values);
-        setSubmitting(false);
-      }, 500);
-    }}
-    validationSchema={Yup.object().shape({
-     firstname: Yup.string()
-         .required("Firstname Required"),
-     lastname: Yup.string()
-      .required("lastname Required"),
-      email: Yup.string()
-        .email()
-        .required("Email Required"),
-      password: Yup.string()
-        .required("No password provided.")
-        .min(8, "Password is too short - should be 8 chars minimum.")
-        .matches(/(?=.*[0-9])/, "Password must contain a number.")
-    })}
-  >
-   {props => {
-      const {
-        values,
-        touched,
-        errors,
-        isSubmitting,
-        handleChange,
-        handleBlur,
-        handleSubmit
-      } = props;
-
+const Signup = () => {
+   
     return (
         <>
             <h1>Airprobe - Save Environment</h1>
@@ -54,7 +18,7 @@ const Signup = () => (
 	    	   
 	    	<div className="login-content">
 			
-            <form className="form" action="index.html" onSubmit={handleSubmit}>
+            <form className="form" action="index.html" >
                {/* <div className="content">
                   <NewUser/>
                 </div> */}
@@ -67,18 +31,15 @@ const Signup = () => (
                    <PersonIcon/>
            		</div>
            		<div className="div">
+                   <label for="validationDefault01" class="form-label"></label>
            		    <input 
                        type="text" 
                        name="firstname"
                        placeholder="First Name" 
                        className="input" 
-                       id="exampleInputFirstName" 
-                       value={values.firstname}
-                      onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={errors.firstname && touched.firstname && "error"}
+                       required
                       />
-                    {errors.firstname && touched.firstname && (<div className="input-feedback">{errors.firstname}</div>)}
+                    
 
                    
               </div>
@@ -89,19 +50,16 @@ const Signup = () => (
                    <GroupIcon/>
            		</div>
            		<div className="div">
+                   <label for="validationDefault01" class="form-label"></label>
            		    <input 
                        type="text" 
                        name="lastname"
                        placeholder="Last Name" 
                        className="input" 
                        id="exampleInputLastName"
-                       value={values.lastname}
-                      onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={errors.lastname && touched.lastname && "error"}
+                       required
                       />
-                    {errors.lastname && touched.lastname && (<div className="input-feedback">{errors.lastname}</div>)}
-
+                
                        
                 </div>
             	</div>
@@ -111,21 +69,15 @@ const Signup = () => (
                       <EmailIcon/>
            		   </div>
            		   <div className="div">
+                      <label for="validationDefault01" class="form-label"></label>
            		   <input 
                       type="email" 
                       name="email"
                       placeholder="Email" 
                       className="input" 
                       id="exampleInputEmail1" 
-                      aria-describedby="emailHelp"
-                      value={values.email}
-                      onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={errors.email && touched.email && "error"}
-                      />
-                    {errors.email && touched.email && (<div className="input-feedback">{errors.email}</div>)}
-
-                      
+                      required
+                    />    
            		   </div>
            	  	</div>
 
@@ -134,20 +86,16 @@ const Signup = () => (
                    <LockIcon/>
            		</div>
            		<div className="div">
+                   <label for="validationDefault01" class="form-label"></label>
            		    <input 
                        type="password"
                        name="password"
                         placeholder="Password" 
                         className="input" 
                         id="exampleInputPassword1" 
-                        value={values.password}
-                        onChange={handleChange}
-            onBlur={handleBlur}
-            className={errors.password && touched.password && "error"}
-          />
-          {errors.password && touched.password && (
-            <div className="input-feedback">{errors.password}</div>
-          )}
+                        required
+                    />
+         
                       
                 </div>
             	</div>
@@ -159,7 +107,7 @@ const Signup = () => (
                 </p>
               
             	<NavLink  activeClassName='menu_active' exact className="nav-link btn" 
-                to="/Signup">Sign In</NavLink>
+                 to="/Home">Sign In</NavLink>
              
               
             </form>
@@ -173,8 +121,7 @@ const Signup = () => (
     
             </>
             );
-   }}
-    </Formik>
-);
+   
+            };
 
 export default Signup;

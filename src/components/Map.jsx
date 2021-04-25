@@ -25,10 +25,12 @@ const Map = () => {
   
   return (
     <>
+     <div className="map">
     	<NavLink  type="submit" activeClassName='menu_active' exact className="nav-link btn1" 
         to="/home">Log out</NavLink>
-        
-
+        <h2>Click on Find Your Location Icon</h2>
+      </div>
+      
     <div style={{ margin: '0 auto'}}>
       <h1 style={{textAlign: 'center', fontSize: '25px', fontWeight: 'bolder' }}>GeoLocator: Click To Find Your Location or click <a href="/search">here</a> to search for a location</h1>
       <MapGL
