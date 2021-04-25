@@ -297,7 +297,9 @@ a:hover{
 	transition: .5s;
 	font-weight: 600;
 }	
-
+.btn1:hover{
+	color: #333;
+}
 
 .btn:hover{
 	background-position: right;
